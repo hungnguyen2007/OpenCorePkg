@@ -24,7 +24,7 @@ DefinitionBlock("", "SSDT", 2, "ACDT", "PNLF", 0)
     External(RMCF.LEVW, IntObj)
     External(RMCF.GRAN, IntObj)
     External(RMCF.FBTP, IntObj)
-    External(_SB_.PCI0.GFX0, DeviceObj)
+    External(\_SB.PCI0.GFX0, DeviceObj)
     
     If (_OSI ("Darwin")) {
         Scope (\_SB.PCI0.GFX0)
@@ -32,7 +32,7 @@ DefinitionBlock("", "SSDT", 2, "ACDT", "PNLF", 0)
             OperationRegion (RMP3, PCI_Config, Zero, 0x14)
 
             // For backlight control
-            Device(PNLF)
+            Device(\_SB.PCI0.GFX0.PNLF)
             {
              // Name(_ADR, Zero)
                 Name(_HID, EisaId("APP0002"))
